@@ -1,3 +1,3 @@
 <?php
-    define('INCLUDE_PATH','http://localhost/PrimeiroProjeto/');
+    define('INCLUDE_PATH','http://localhost/PHP-PrimeiroProjeto/PrimeiroProjeto/');
 ?>
