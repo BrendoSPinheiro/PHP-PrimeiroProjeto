@@ -1,0 +1,442 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+/**Boot CSS**/
+html,body{
+    height: 100%;
+}
+
+img{
+    width: 100%;
+    max-width: 500px;
+}
+
+.center{
+    max-width: 1280px;
+    padding: 0 2%;
+    margin: 0 auto;
+}
+
+.w33{
+    width: 33.3%;
+    padding: 0 10px;
+}
+
+.w50{
+    padding: 0 10px;
+    width: 50%;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.clear{
+    clear: both;
+}
+
+/**Estilização do site**/
+
+header{
+    padding: 20px 0;
+    background: #3D437A;
+}
+
+header .logo{
+    font-size: 25px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+}
+
+.mobile{
+    display: none;
+}
+
+nav.desktop ul{
+    position: relative;
+    top: 6px;
+    list-style-type: none;
+}
+
+nav.desktop li{
+    font-weight: 300;
+    font-size: 15px;
+    padding: 0 30px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+nav.desktop a{
+    color: white;
+    text-decoration: none;
+}
+
+nav.desktop a:hover{
+    text-decoration: underline;
+}
+
+section.banner-container{
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+.banner-single{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(51, 51, 51, 0.6);
+}
+
+section.banner-container form{
+    width: 93%;
+    max-width: 600px;
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+section.banner-container form h2{
+    color: white;
+    font-weight: 300;
+    font-size: 30px;
+    text-align: center;
+}
+
+section.banner-container form input[type=email]{
+    width: 100%;
+    height: 66px;
+    margin-top: 10px;
+    background: white;
+    color: #333;
+    font-size: 22px;
+    padding-left: 10px;
+    border: 0;
+}
+
+section.banner-container form input[type=submit]{
+    width: 100%;
+    height: 66px;
+    margin-top: 10px;
+    background: #00C59E;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+    border: 0;
+}
+
+section.descricao-usuario{
+    padding: 30px 0;
+}
+
+section.descricao-usuario h2{
+    font-size: 28px;
+    font-weight: 400;
+    color: #444;
+}
+
+section.descricao-usuario p{
+    color: #444;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+section.tecnologias{
+    padding: 40px 0;
+    background: #E2E2E2;
+}
+
+section.tecnologias h2.tittle{
+     font-size: 30px;
+     font-weight: 400;
+     color: #999;
+     text-align: center;
+}
+
+.box-especialidades{
+    margin: 40px 0;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.box-especialidades h3 i{
+    color: #404580;
+    font-size: 40px;
+}
+
+.box-especialidades h3{
+    font-weight: 300;
+    color: #BABABA;
+    font-size: 25px;
+}
+
+.box-especialidades p{
+    color: #444;
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+section.extras{
+    padding: 30px 0;
+    background: #404580;
+}
+
+.depoimentos-container,.servicos-container{
+    padding: 0 50px;
+}
+
+section.extras .tittle{
+    color: white;
+    font-weight: 300;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.depoimento-single{
+    padding: 15px 0;
+    border-bottom: 1px solid #5056A0;
+    color: white;
+}
+
+p.depoimento-descricao{
+    font-size: 15px;
+    text-align: justify;
+    font-weight: 300;
+}
+
+p.nome-autor{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+div.servicos ul{
+    margin: 20px 0;
+}
+
+div.servicos li{
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: white;
+    font-weight: 300;
+    text-align: justify;
+}
+
+footer{
+    background: #313462;
+    padding: 30px 0;
+}
+
+footer p{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+footer.fixed{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.wraper-404{
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    width: 100%;
+    left: 50%;
+    padding: 0 2%;
+    max-width: 1280px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+}
+
+/*
+Correção de erro do scroll-x do InternetExplorer e EDGE.
+*/
+body{
+    overflow-x: hidden;
+}
+
+section.err404 h3{
+    font-size: 50px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+section.err404 p{
+    font-size: 20px;
+}
+
+#map{
+    width: 100%;
+    height: 400px;
+}
+
+.contato-container{
+    padding: 40px 0;
+    text-align: center;
+}
+
+.contato-container input[type=text]{
+    margin: 8px 0;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding-left: 8px;
+    font-size: 16px;
+    max-width: 700px;
+}
+
+.contato-container input[type=email]{
+    margin: 8px 0;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding-left: 8px;
+    font-size: 16px;
+    max-width: 700px;
+}
+
+.contato-container textarea{
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+    height: 106px;
+    border: 1px solid #ccc;
+    padding-left: 8px;
+    font-size: 16px;
+    max-width: 700px;
+    resize: vertical;
+    color: #444;
+}
+
+.contato-container input[type=submit]{
+    background: #00C59E;
+    width: 140px;
+    height: 40px;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+.bullets{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.bullets span{
+    margin: 0 8px;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: gray;
+}
+
+.bullets span.active-slider{
+    background-color: #00C59E;
+}
+
+@media screen and (max-width: 768px){
+    img{
+        float: none !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .w50{
+        padding: 20px;
+        width: 100%;
+    }
+
+    .w33{
+        width: 100%;
+        padding: 20px;
+    }
+
+    .box-especialidades{
+        padding: 40px 20px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 700px){
+    nav.desktop{
+        display: none;
+    }
+
+    nav.mobile{
+        display: block;
+    }
+
+    .botao-menu-mobile{
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+
+    nav.mobile ul{
+        display: none;
+        z-index: 3;
+        left: 0;
+        top: 55px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav.mobile li{
+        display: block;
+        background: white;
+        border-bottom: 1px solid #ccc;
+        font-size: 17px;
+        padding: 8px 0;
+        font-weight: 300;
+    }
+
+    nav.mobile li a{
+        color: #444;
+        text-decoration: none;
+        display: block;
+    }
+}
+
+
