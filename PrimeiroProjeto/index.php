@@ -14,6 +14,25 @@
         <title>Primeiro Projeto</title>
     </head>
     <body>
+        <?php
+            if(isset($_POST['cadastrar'])){
+                if($_POST['email'] != ''){
+                    $email = $_POST['email'];
+                    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                        $mail = new Email('smtp.gmail.com','','','');
+                        $mail->addAdress($email,'');
+                        $content = array('assunto'=>'Um novo email cadastrado','corpo'=>'Teste do disparo de email automático com PHPMailer');
+                        $mail->formatMail($content);
+                        $mail->sendMailer();
+                    }else{
+                        echo '<script>alert("Não é um email válido!")</script>';
+                    }
+                }else{
+                    echo '<script>alert("Insira um email!")</script>';
+                }
+            }
+        ?>
+
         <base base="<?php echo INCLUDE_PATH; ?>" />
 
         <?php
@@ -30,7 +49,7 @@
             }
         ?>
 
-        <?php new Email(); ?>
+        <?php //new Email(); ?>
 
         <header>
             <div class="center">

@@ -1,44 +1,39 @@
 <?php
     class Email{
         
-        function __construct(){
-            $mail = new PHPMailer(true);
+        private $mailer;
 
-            try {
-                //Server settings
-                //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                    // Enable verbose debug output
-                $mail->isSMTP();                                            // Send using SMTP
-                $mail->Host       = 'smtp1.example.com';                    // Set the SMTP server to send through
-                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                $mail->Username   = 'user@example.com';                     // SMTP username
-                $mail->Password   = 'secret';                               // SMTP password
-                $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-                $mail->Port       = 465;                                    // TCP port to connect to
+        public function __construct($host,$username,$password,$name){
+            $this->mailer = new PHPMailer(true);
 
-                //Recipients
-                $mail->setFrom('from@example.com', 'Mailer');
-                $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
-                //mail->addReplyTo('info@example.com', 'Information');
-                //$mail->addCC('cc@example.com');
-                //$mail->addBCC('bcc@example.com');
-
-                // Attachments
-                //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-                //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-                // Content
-                $mail->isHTML(true);                                  // Set email format to HTML
-                $mail->Subject = 'Here is the subject';
-                $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-                $mail->send();
-                echo 'Message has been sent';
-            } catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            }
+            $this->mailer->isSMTP();                           // Send using SMTP
+            $this->mailer->Host       = $host;                 // Set the SMTP server to send through
+            $this->mailer->SMTPAuth   = true;                  // Enable SMTP authentication
+            $this->mailer->Username   = $username;             // SMTP username
+            $this->mailer->Password   = $password;             // SMTP password
+            $this->mailer->SMTPSecure = 'tls';                 // Enable TLS encryption;
+            $this->mailer->Port       = 587;                   // TCP port to connect to
+            $this->mailer->setFrom($username,$name);
+            $this->mailer->isHTML(true);                       // Set email format to HTML   
+            $this->mailer->CharSet    = 'UTF-8';
+        }
+        public function addAdress($email,$name){
+            $this->mailer->addAddress($email, $name);
         }
 
+        public function formatMail($content){
+            $this->mailer->Subject = $content['assunto'];
+            $this->mailer->Body    = $content['corpo'];
+            $this->mailer->AltBody = strip_tags($content['corpo']); //retira todas as tags html
+        }
+
+        public function sendMailer(){
+            try {
+                $this->mailer->send();
+                echo '<script>alert("A mensagem foi enviada com sucesso!")</script>';
+            } catch (Exception $e) {
+                echo '<script>alert("Ocorreu um erro no envio da mensagem.")</script>';
+            }
+        }
     }
-    
 ?>
