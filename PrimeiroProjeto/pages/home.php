@@ -9,6 +9,7 @@
             <h2>Qual o seu melhor email?</h2>
             <input type="email" name="email" required />
             <input type="submit" value="Cadastrar" name="cadastrar" />
+            <input type="hidden" name="identificador" value="form_home">
         </form>
     </div><!--center-->
     <div class="bullets"></div><!--bullets-->

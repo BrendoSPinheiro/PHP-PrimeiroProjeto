@@ -15,18 +15,25 @@
     </head>
     <body>
         <?php
+            $mail = new Email(HOST,EMAIL_REMETENTE,'',REMETENTE);
             if(isset($_POST['cadastrar'])){
                 if($_POST['email'] != ''){
                     $email = $_POST['email'];
                     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-                        $mail = new Email('smtp.gmail.com','','','');
-                        $mail->addAdress($email,'');
-                        $content = array('assunto'=>'Um novo email cadastrado','corpo'=>'Teste do disparo de email automático com PHPMailer');
-                        $mail->formatMail($content);
-                        $mail->sendMailer();
+                        if($_POST['identificador']=='form_home'){    
+                            $mail->addAdress($email,'');
+                            $content = array('assunto'=>'Um novo email cadastrado','corpo'=>'Teste do envio de email do formulario da home');
+                            $mail->formatMail($content);
+                            $mail->sendMailer();
+                        }else if($_POST['identificador']=='form_contato'){
+                            $mail->addAdress($email,'');
+                            $content = array('assunto'=>'Um novo email cadastrado','corpo'=>'Teste do envio de email do formulario de contato');
+                            $mail->formatMail($content);
+                            $mail->sendMailer();
+                        }
                     }else{
                         echo '<script>alert("Não é um email válido!")</script>';
-                    }
+                    }    
                 }else{
                     echo '<script>alert("Insira um email!")</script>';
                 }
@@ -48,8 +55,6 @@
                     break;
             }
         ?>
-
-        <?php //new Email(); ?>
 
         <header>
             <div class="center">
